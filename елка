@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+void drawTree(int level, int height, int maxWidth) {
+    if (level > 0) {
+        drawTree(level - 1, height, maxWidth);
+        int numSpaces = (maxWidth - (height - level + 1)) / 2;
+        for (int i = 0; i < numSpaces; i++) {
+            cout << " ";
+        }
+        for (int i = 0; i < height - level + 1; i++) {
+            cout << "*";
+        }
+        cout << endl;
+        drawTree(level - 1, height, maxWidth);
+    }
+}
+
+int main() {
+    drawTree(1, 1, 10);
+    drawTree(1, 3, 10);
+    drawTree(1, 1, 10);
+    drawTree(1, 3, 10);
+    drawTree(1, 5, 10);
+    drawTree(1, 1, 10);
+    drawTree(1, 3, 10);
+    drawTree(1, 5, 10);
+    drawTree(1, 7, 10);
+    return 0;
+}
